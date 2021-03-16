@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kfind
 Summary:	kfind
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9d09bb0f5399432105983ee4734704e4
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	410bca2b7ab4f61502361622217c2f85
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -65,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-/etc/xdg/kfind.categories
 %attr(755,root,root) %{_bindir}/kfind
 %{_desktopdir}/org.kde.kfind.desktop
 %{_iconsdir}/hicolor/128x128/apps/kfind.png
@@ -92,3 +91,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) %{_mandir}/sv/man1/kfind.1*
 %lang(uk) %{_mandir}/uk/man1/kfind.1*
 %{_datadir}/metainfo/org.kde.kfind.appdata.xml
+%{_datadir}/qlogging-categories5/kfind.categories
