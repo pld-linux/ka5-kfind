@@ -40,6 +40,11 @@ from your menu. It is also integrated into Konqueror as "Find File" in
 the "Tools" menu. It allows you to find files by name, type or
 content.
 
+%description -l pl.UTF-8
+KFind może używany jako samodzielny program, uruchamiany przez KRunnera
+lub z menu. Jest też zintegrowany z Konquerorem jak "Find File" w menu
+"Tools". Pozwala wyszukiwać pliki według nazwy, typu lub treści.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
