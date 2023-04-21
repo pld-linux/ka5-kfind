@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.12.3
+%define		kdeappsver	23.04.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kfind
 Summary:	kfind
 Name:		ka5-%{kaname}
-Version:	22.12.3
-Release:	3
+Version:	23.04.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	0d7140b669dd34895b980e6004958b2e
+# Source0-md5:	6982fccd69af6a4c48731e363f219c54
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -107,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru) %{_mandir}/ru/man1/kfind.1*
 %lang(sr) %{_mandir}/sr/man1/kfind.1*
 %lang(sv) %{_mandir}/sv/man1/kfind.1*
+%lang(tr) %{_mandir}/tr/man1/kfind.1*
 %lang(uk) %{_mandir}/uk/man1/kfind.1*
 %{_datadir}/metainfo/org.kde.kfind.appdata.xml
 %{_datadir}/qlogging-categories5/kfind.categories
