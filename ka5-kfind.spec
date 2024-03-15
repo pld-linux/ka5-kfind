@@ -1,36 +1,36 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kfind
 Summary:	kfind
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	00e48f99dcf79fe33246e7805afe5297
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	a5e3fa070cda5b63e84bbe4c52f9bbe8
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Concurrent-devel
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= 5.11.1
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt5Concurrent-devel
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-karchive-devel >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-kdoctools-devel >= %{kframever}
-BuildRequires:	kf6-kfilemetadata-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kio-devel >= %{kframever}
-BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
-BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-karchive-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-kfilemetadata-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -57,8 +57,7 @@ lub z menu. Jest też zintegrowany z Konquerorem jak "Find File" w menu
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DQT_MAJOR_VERSION=6
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 %ninja_build -C build
 
 %if %{with tests}
@@ -84,7 +83,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kfind
 %{_desktopdir}/org.kde.kfind.desktop
-%{_iconsdir}/hicolor/*x*/apps/*.png
+%{_iconsdir}/hicolor/128x128/apps/kfind.png
+%{_iconsdir}/hicolor/16x16/apps/kfind.png
+%{_iconsdir}/hicolor/22x22/apps/kfind.png
+%{_iconsdir}/hicolor/32x32/apps/kfind.png
+%{_iconsdir}/hicolor/48x48/apps/kfind.png
+%{_iconsdir}/hicolor/64x64/apps/kfind.png
 %{_iconsdir}/hicolor/scalable/apps/kfind.svgz
 %lang(ca) %{_mandir}/ca/man1/kfind.1*
 %lang(de) %{_mandir}/de/man1/kfind.1*
@@ -104,4 +108,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_mandir}/tr/man1/kfind.1*
 %lang(uk) %{_mandir}/uk/man1/kfind.1*
 %{_datadir}/metainfo/org.kde.kfind.appdata.xml
-%{_datadir}/qlogging-categories6/kfind.categories
+%{_datadir}/qlogging-categories5/kfind.categories
